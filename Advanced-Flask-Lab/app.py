@@ -25,13 +25,15 @@ posts = {
 
 @app.route('/')  # '/' for the default page
 def home():
-    return render_template('index.html')
+    return render_template('index.html', image = image_link)
 
 
 @app.route('/about')  # '/' for the default page
 def about():
-    return render_template('about.html')
-
+    return render_template('about.html', userbio = user_bio)
+@app.route('/')
+def hello_world():
+    return render_template("hello_conditionals.html",my_posts = posts,no_posts=False)
 
 if __name__ == "__main__":  # Makes sure this is the main process
     app.run(debug=True)
